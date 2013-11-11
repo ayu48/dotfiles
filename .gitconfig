@@ -1,0 +1,17 @@
+[user]
+    name = Ayu Ishii
+    email = ayuishii.blue@gmail.com
+[credential]
+    helper = osxkeychain
+[merge]
+    tool = vimdiff
+[color]
+    ui = true
+    status = auto
+    branch = auto
+    interactive = auto
+    diff = auto
+[alias]
+    st = status
+    br = branch
+    checkout = co
