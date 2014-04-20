@@ -5,6 +5,7 @@
 "colorscheme solarized
 
 "display
+set encoding=utf-8
 set cursorline
 set number
 syntax enable
