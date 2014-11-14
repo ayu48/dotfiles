@@ -1,5 +1,5 @@
-# change meta-key to shift-g
-escape ^GG
+# change meta-key to control-A
+escape ^AA
 
 # don't show info at startup
 startup_message off
