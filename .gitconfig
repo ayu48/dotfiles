@@ -1,6 +1,6 @@
 [user]
     name = Ayu Ishii
-    email = ayuishii.blue@gmail.com
+    email = ayuishii.blue+git@gmail.com
 [credential]
     helper = osxkeychain
 [merge]
