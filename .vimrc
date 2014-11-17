@@ -24,3 +24,6 @@ set ignorecase
 set smartcase
 set wrapscan
 set hlsearch
+
+"sound
+set noeb vb t_vb=
