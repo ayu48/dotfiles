@@ -1,5 +1,6 @@
 "set runtimepath+=~/.vim_runtime
-"execute pathogen#infect()
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+execute pathogen#infect()
 
 "color
 "colorscheme solarized
@@ -47,3 +48,6 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |
 highlight ExtraWhitespace ctermbg=3
 match ExtraWhitespace /\s\+$\|\t\+/
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=3
+
+noremap <space>: :sort<cr>gv:Tabular /:<cr>gv:s/ :/:/g<cr>:nohl<cr>
+noremap <space>= :Tabular /=<cr>
