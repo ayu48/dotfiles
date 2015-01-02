@@ -27,3 +27,23 @@ set hlsearch
 
 "sound
 set noeb vb t_vb=
+
+" Undo file.
+set undofile
+set undodir=$HOME/.vim/undo
+set undolevels=1000
+set undoreload=10000
+
+" Use tab to navigate splits.
+nnoremap <tab> <C-w><C-w>
+nnoremap <s-tab> <C-w><left>
+
+" Remember last cursor position.
+set viminfo='10,\"100,:20,%,n~/.viminfo
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |
+    \ exe "normal! g'\"" | endif
+
+" Highlight extra whitespace and tabs.
+highlight ExtraWhitespace ctermbg=3
+match ExtraWhitespace /\s\+$\|\t\+/
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=3
