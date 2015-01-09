@@ -51,3 +51,4 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=3
 
 noremap <space>: :sort<cr>gv:Tabular /:<cr>gv:s/ :/:/g<cr>:nohl<cr>
 noremap <space>= :Tabular /=<cr>
+noremap <space>P :CtrlP<cr>
