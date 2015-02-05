@@ -52,3 +52,9 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=3
 noremap <space>: :sort<cr>gv:Tabular /:<cr>gv:s/ :/:/g<cr>:nohl<cr>
 noremap <space>= :Tabular /=<cr>
 noremap <space>P :CtrlP<cr>
+
+" YCM Setting: for Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
