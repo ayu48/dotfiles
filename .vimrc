@@ -1,60 +1,91 @@
-"set runtimepath+=~/.vim_runtime
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-execute pathogen#infect()
+set nocompatible " be iMproved, required
+filetype off     " required
 
-"color
-"colorscheme solarized
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
 
-"display
-set encoding=utf-8
-set cursorline
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'groenewege/vim-less'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'ciaranm/detectindent'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'rking/ag.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'scrooloose/nerdtree'
+call vundle#end()
+
+syntax on
+filetype plugin indent on
+colorscheme tchaba2
+
+set autoindent
+set showmode
 set number
-syntax enable
-set laststatus=2
-
-"insert format
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
 set smartindent
-
-"search
-set incsearch
-set ignorecase
-set smartcase
-set wrapscan
+set ic
+set shiftwidth=2
+set expandtab
+set tabstop=2
+set softtabstop=2
+set backspace=2
 set hlsearch
+set incsearch
+set scrolloff=3
+set visualbell
+set t_vb=
+set rtp+=~/.fzf
 
-"sound
-set noeb vb t_vb=
+" align
+noremap <space>: :Tabularize /:<cr>gv:s/ :/:/g<cr>:noh<cr>
+noremap <space>= :Tabularize /^[^=]*\zs=<cr>
 
-" Undo file.
-set undofile
-set undodir=$HOME/.vim/undo
-set undolevels=1000
-set undoreload=10000
+" Fzf
+noremap :F :FZF
 
-" Use tab to navigate splits.
-nnoremap <tab> <C-w><C-w>
-nnoremap <s-tab> <C-w><left>
+" Close preview window after selection
+autocmd CompleteDone * pclose
 
-" Remember last cursor position.
-set viminfo='10,\"100,:20,%,n~/.viminfo
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |
-    \ exe "normal! g'\"" | endif
+" Highlight column 101
+set colorcolumn=101
+highlight ColorColumn ctermbg=3
 
 " Highlight extra whitespace and tabs.
 highlight ExtraWhitespace ctermbg=3
 match ExtraWhitespace /\s\+$\|\t\+/
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=3
 
-noremap <space>: :sort<cr>gv:Tabular /:<cr>gv:s/ :/:/g<cr>:nohl<cr>
-noremap <space>= :Tabular /=<cr>
-noremap <space>P :CtrlP<cr>
+" Use tab to navigate splits.
+nnoremap <tab> <C-w><C-w>
+nnoremap <s-tab> <C-w><left>
 
-" YCM Setting: for Omni-Completion tip window to close when a selection is
-" made, these lines close it on movement in insert mode or when leaving
-" insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" Move multiple lines at once.
+nnoremap <C-j> 10j
+nnoremap <C-k> 10k
+nnoremap <C-l> 10l
+nnoremap <C-h> 10h
+vnoremap <C-j> 10j
+vnoremap <C-k> 10k
+vnoremap <C-l> 10l
+vnoremap <C-h> 10h
+
+" NerdTree
+map <C-n> :NERDTreeToggle<CR>
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
