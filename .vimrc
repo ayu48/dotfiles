@@ -44,6 +44,7 @@ set scrolloff=3
 set visualbell
 set t_vb=
 set rtp+=~/.fzf
+set clibboard=unnamedplus "copy to clipboard (linux specific)
 
 " align
 noremap <space>: :Tabularize /:<cr>gv:s/ :/:/g<cr>:noh<cr>
